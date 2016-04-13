@@ -41,10 +41,10 @@
 
 
     <ListView
+        android:id="@+id/listItems"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/listInput"
-        android:id="@+id/list_item">
+        android:layout_below="@id/listInput">
     </ListView>
 
 </RelativeLayout>
