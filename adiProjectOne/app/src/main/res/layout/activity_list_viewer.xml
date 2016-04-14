@@ -16,12 +16,25 @@
         android:layout_height="40dp"
         android:text="YouMade it!"/>
 
-<ListView
-    android:id="@+id/listViewer"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_below="@+id/madeIt">
+    <EditText
+        android:id="@+id/subListInput"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="11dp"
+        android:hint="Stuff for sub list"/>
 
-</ListView>
+    <Button
+        android:id="@+id/addToSubList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:text="ADD"/>
+
+    <ListView
+        android:id="@+id/subListItems"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/addToSubList">
+    </ListView>
 
 </RelativeLayout>

@@ -10,7 +10,7 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity {
 
     Button newListButton;
-    Button viewListsButton;
+    //Button viewListsButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         newListButton = (Button) findViewById(R.id.newList);
-        viewListsButton = (Button) findViewById(R.id.viewLists);
+        //viewListsButton = (Button) findViewById(R.id.viewLists);
 
 
         OnClickListener newListClickListener = new OnClickListener() {
@@ -29,15 +29,15 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
-        OnClickListener viewListsClickListener = new OnClickListener() {
-            public void onClick(View v) {
-                Intent viewLists = new Intent(MainActivity.this, ListViewer.class);
-                startActivity(viewLists);
-            }
-        };
-
-        newListButton.setOnClickListener(newListClickListener);
-        viewListsButton.setOnClickListener(viewListsClickListener);
+//        OnClickListener viewListsClickListener = new OnClickListener() {
+//            public void onClick(View v) {
+//                Intent viewLists = new Intent(MainActivity.this, ListViewer.class);
+//                startActivity(viewLists);
+//            }
+//        };
+//
+       newListButton.setOnClickListener(newListClickListener);
+//        viewListsButton.setOnClickListener(viewListsClickListener);
 
     }
 }
