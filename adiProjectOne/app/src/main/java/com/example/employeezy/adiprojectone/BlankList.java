@@ -1,5 +1,6 @@
 package com.example.employeezy.adiprojectone;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -7,10 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-
 import java.util.ArrayList;
-import java.util.Collection;
-
 public class BlankList extends AppCompatActivity {
 
     Button listNameButton;
@@ -37,7 +35,9 @@ public class BlankList extends AppCompatActivity {
         //Takes a List Name
         View.OnClickListener blankListNameClickListener = new View.OnClickListener() {
             public void onClick(View v) {
-                savedInstanceState.getStringArrayList(itemsInTheArray.addAll( ));
+                Intent infoSave = new Intent(this, BlankList.class);
+                infoSave.putExtra("moreInfo",);
+                startActivity(infoSave);
             }
         };
 
