@@ -10,35 +10,18 @@
     tools:context="com.example.employeezy.adiprojectone.BlankList">
 
     <EditText
-        android:id="@+id/listName"
-        android:layout_width="300dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="10dp"
-        android:hint="Name your list"/>
-
-    <Button
-        android:id="@+id/saveListButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:text="Save"/>
-
-    <EditText
         android:id="@+id/listInput"
         android:layout_width="300dp"
         android:layout_height="40dp"
-        android:layout_marginTop="8dp"
-        android:layout_below="@+id/listName"
+        android:layout_marginTop="11dp"
         android:hint="Stuff for list"/>
 
     <Button
         android:id="@+id/addToList"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/saveListButton"
         android:layout_alignParentRight="true"
         android:text="ADD"/>
-
 
     <ListView
         android:id="@+id/listItems"

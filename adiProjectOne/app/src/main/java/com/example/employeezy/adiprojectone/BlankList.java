@@ -3,15 +3,17 @@ package com.example.employeezy.adiprojectone;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+
 import java.util.ArrayList;
+
 public class BlankList extends AppCompatActivity {
 
-    Button listNameButton;
     Button listAddButton;
 
     @Override
@@ -19,40 +21,44 @@ public class BlankList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_blank_list);
 
-        listNameButton = (Button) findViewById(R.id.saveListButton);
         listAddButton = (Button) findViewById(R.id.addToList);
 
         //pulls information from input fields from blank_list.xml
-        final EditText iListName = (EditText) findViewById(R.id.listName);
+        //final EditText iListName = (EditText) findViewById(R.id.listName);
         final EditText iListInput = (EditText) findViewById(R.id.listInput);
 
         ListView iListItems = (ListView) findViewById(R.id.listItems);
 
-        final ArrayList itemsInTheArray = new ArrayList<String>();
-        final ArrayAdapter blankListAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, itemsInTheArray);
-        iListItems.setAdapter(blankListAdapter);
+        final ArrayList itemsInTheArray = new ArrayList<>();
+        itemsInTheArray.add("SuperCool List");
+        itemsInTheArray.add("Cool List");
+        itemsInTheArray.add("Kinda not Cool List");
 
-        //Takes a List Name
-        View.OnClickListener blankListNameClickListener = new View.OnClickListener() {
-            public void onClick(View v) {
-                Intent infoSave = new Intent(this, BlankList.class);
-                infoSave.putExtra("moreInfo",);
-                startActivity(infoSave);
-            }
-        };
+        final ArrayAdapter blankListAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, itemsInTheArray);
+        iListItems.setAdapter(blankListAdapter);
 
         //Takes a list input puts it in the array
         View.OnClickListener blankListInputClickListener = new View.OnClickListener() {
-            @Override
             public void onClick(View v) {
-               //System.out.println("Guacamolly");
+                //System.out.println("Guacamolly");
                 itemsInTheArray.add(iListInput.getText().toString());
                 iListInput.setText("");
                 blankListAdapter.notifyDataSetChanged();
             }
         };
 
-        listNameButton.setOnClickListener(blankListNameClickListener);
+        View.OnTouchListener goToListViewerTouchListener = new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                Intent listViewer = new Intent(BlankList.this, ListViewer.class);
+                listViewer.putStringArrayListExtra("stuffInTheArray", itemsInTheArray);
+                startActivity(listViewer);
+                return true;
+            }
+        };
+
+        //listNameButton.setOnClickListener(blankListNameClickListener);
         listAddButton.setOnClickListener(blankListInputClickListener);
+        iListItems.setOnTouchListener(goToListViewerTouchListener);
     }
 }
