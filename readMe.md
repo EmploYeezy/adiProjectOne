@@ -3,13 +3,21 @@
 ####by: mike marshall
 ###### aka @emploYeezy
 
-Scope: Create a simple ToDo list application for android! 
+scope: Create a simple ToDo list application for android! 
 
-requirements: tbd 
+requirements: A list making application that has a list of lists that can then be opened and more LISTS can be made. 
 
 theBluePrint:
-
 ![](images/blueprint.jpg)
+
+theHomeScreen:
+![](images/screenshot.jpg)	
+
+
+
+
+
+
 
 
 
