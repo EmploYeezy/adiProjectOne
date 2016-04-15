@@ -1,5 +1,6 @@
 package com.example.employeezy.adiprojectone;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -37,6 +39,13 @@ public class BlankList extends AppCompatActivity {
 
         iListItems.setAdapter(blankListAdapter);
 
+        //Creating toast "Mamba Out"
+        Context context = getApplicationContext();
+        CharSequence text = "Mamba. Out.";
+        int duration = Toast.LENGTH_SHORT;
+
+        final Toast toast = Toast.makeText(context, text, duration);
+
         //Takes a list input puts it in the array
         View.OnClickListener blankListInputClickListener = new View.OnClickListener() {
             public void onClick(View v) {
@@ -63,6 +72,7 @@ public class BlankList extends AppCompatActivity {
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 itemsInTheArray.remove(position);
                 blankListAdapter.notifyDataSetChanged();
+                toast.show();
                 return false;
             }
         });
