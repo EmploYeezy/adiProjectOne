@@ -16,6 +16,9 @@ import java.util.ArrayList;
 public class BlankList extends AppCompatActivity {
 
     Button listAddButton;
+    ArrayList itemsInTheArray;
+    EditText iListInput;
+    ArrayAdapter blankListAdapter;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -24,15 +27,15 @@ public class BlankList extends AppCompatActivity {
 
         listAddButton = (Button) findViewById(R.id.addToList);
 
-        final EditText iListInput = (EditText) findViewById(R.id.listInput);
+        iListInput = (EditText) findViewById(R.id.listInput);
 
         ListView iListItems = (ListView) findViewById(R.id.listItems);
 
-        final ArrayList itemsInTheArray = new ArrayList<>();
+        itemsInTheArray = new ArrayList<>();
 
-        final ArrayAdapter blankListAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, itemsInTheArray);
+        blankListAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, itemsInTheArray);
+
         iListItems.setAdapter(blankListAdapter);
-        itemsInTheArray.add("here's a sstring");
 
         //Takes a list input puts it in the array
         View.OnClickListener blankListInputClickListener = new View.OnClickListener() {
@@ -59,6 +62,7 @@ public class BlankList extends AppCompatActivity {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 itemsInTheArray.remove(position);
+                blankListAdapter.notifyDataSetChanged();
                 return false;
             }
         });
