@@ -9,6 +9,9 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
+    //This entire class consists of a single button. There used to be two,
+    //but like The Highlander, only one can survive.
+
     Button newListButton;
     //Button viewListsButton;
 

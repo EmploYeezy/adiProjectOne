@@ -1,5 +1,6 @@
 package com.example.employeezy.adiprojectone;
 
+//The order of these imports in no way infers their importance to this application.
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,11 +13,11 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.util.ArrayList;
 
 public class BlankList extends AppCompatActivity {
 
+    //Instantiation
     Button listAddButton;
     ArrayList itemsInTheArray;
     EditText iListInput;
@@ -39,11 +40,10 @@ public class BlankList extends AppCompatActivity {
 
         iListItems.setAdapter(blankListAdapter);
 
-        //Creating toast "Mamba Out"
+        //Creating Toast "Mamba Out"
         Context context = getApplicationContext();
         CharSequence text = "Mamba. Out.";
         int duration = Toast.LENGTH_SHORT;
-
         final Toast toast = Toast.makeText(context, text, duration);
 
         //Takes an input from the user and puts it in the array
@@ -54,17 +54,19 @@ public class BlankList extends AppCompatActivity {
                 blankListAdapter.notifyDataSetChanged();
             }
         };
+
         //Opens a blank array with the name of the list from the user. Send it to ListViewer
         iListItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(getApplicationContext(), ListViewer.class);
                 String title = ((TextView) view).getText().toString();
-                //intent.putExtra("position", position);
+                //intent.putExtra("position", position); <--- would have pulled number of the index number of the array
                 intent.putExtra("title", title);
                 startActivity(intent);
             }
         });
+
         //Long click to delete items from the array. Also adds a super clever Mamba Out toast
         iListItems.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
