@@ -7,24 +7,27 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="#BFABFA"
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.example.employeezy.adiprojectone.ListViewer">
 
     <TextView
+        android:text=""
         android:id="@+id/madeIt"
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:text=""/>
+        />
 
     <EditText
         android:id="@+id/subListInput"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_marginTop="11dp"
-        android:hint="Stuff for sub list"/>
+        android:hint="Add list item here"/>
 
     <Button
         android:id="@+id/addToSubList"
+        android:background="#ffd700"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
@@ -33,7 +36,9 @@
     <ListView
         android:id="@+id/subListItems"
         android:layout_width="match_parent"
+        android:background="#BFABFA"
         android:layout_height="match_parent"
+        android:layout_marginTop="5dp"
         android:layout_below="@id/addToSubList">
     </ListView>
 

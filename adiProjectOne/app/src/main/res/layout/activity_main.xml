@@ -9,9 +9,9 @@
 
     <Button
         android:id="@+id/newList"
-        android:text="New List"
+        android:text="Mamba List"
         android:textSize="50sp"
-        android:textColor="#FFFFFF"
+        android:textColor="#ffd700"
         android:layout_width="match_parent"
         android:layout_columnWeight="0"
         android:background="#691cab"

@@ -51,9 +51,9 @@ public class BlankList extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(getApplicationContext(), ListViewer.class);
-                String name = ((TextView) view).getText().toString();
+                String title = ((TextView) view).getText().toString();
                 intent.putExtra("index", position);
-                intent.putExtra("name", name);
+                intent.putExtra("title", title);
                 startActivity(intent);
             }
         });

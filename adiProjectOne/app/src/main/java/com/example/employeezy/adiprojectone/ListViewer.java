@@ -1,18 +1,22 @@
 package com.example.employeezy.adiprojectone;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
 public class ListViewer extends AppCompatActivity {
 
     Button addToSubList;
+    ArrayAdapter subArrayAdapter;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -24,10 +28,16 @@ public class ListViewer extends AppCompatActivity {
 
         final EditText subListInput = (EditText) findViewById(R.id.subListInput);
 
-        final ArrayList theSubArray = new ArrayList<>();
+        Intent intent = getIntent();
+        String title1 = intent.getStringExtra("title");
+        TextView messageTextView= (TextView) findViewById(R.id.madeIt);
+        messageTextView.setText(title1);
 
+        final ArrayList theSubArray = new ArrayList<>();
         final ArrayAdapter subListAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, theSubArray);
         subListView.setAdapter(subListAdapter);
+
+        subArrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, theSubArray);
 
         View.OnClickListener sublistClickListener = new View.OnClickListener() {
             public void onClick(View v) {
@@ -37,7 +47,24 @@ public class ListViewer extends AppCompatActivity {
             }
         };
 
+        subListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                theSubArray.remove(position);
+                subListAdapter.notifyDataSetChanged();
+                return false;
+            }
+        });
+
         addToSubList.setOnClickListener(sublistClickListener);
+
+
+
+
+
+
+
+
 
 //        ArrayList<String> arrayOfArrays = new ArrayList<>();
 //        ArrayAdapter<String> arrayListAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, arrayOfArrays);
