@@ -46,27 +46,26 @@ public class BlankList extends AppCompatActivity {
 
         final Toast toast = Toast.makeText(context, text, duration);
 
-        //Takes a list input puts it in the array
+        //Takes an input from the user and puts it in the array
         View.OnClickListener blankListInputClickListener = new View.OnClickListener() {
             public void onClick(View v) {
                 itemsInTheArray.add(iListInput.getText().toString());
                 iListInput.setText("");
                 blankListAdapter.notifyDataSetChanged();
-                //ArrayList sublist = new ArrayList<>();
             }
         };
-
+        //Opens a blank array with the name of the list from the user. Send it to ListViewer
         iListItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(getApplicationContext(), ListViewer.class);
                 String title = ((TextView) view).getText().toString();
-                //intent.putExtra("index", position);
+                //intent.putExtra("position", position);
                 intent.putExtra("title", title);
                 startActivity(intent);
             }
         });
-
+        //Long click to delete items from the array. Also adds a super clever Mamba Out toast
         iListItems.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {

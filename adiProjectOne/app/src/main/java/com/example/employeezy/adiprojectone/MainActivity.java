@@ -25,16 +25,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent listAdd = new Intent(MainActivity.this, BlankList.class);
                 startActivity(listAdd);
-
             }
         };
 
-//        OnClickListener viewListsClickListener = new OnClickListener() {
-//            public void onClick(View v) {
-//                Intent viewLists = new Intent(MainActivity.this, ListViewer.class);
-//                startActivity(viewLists);
-//            }
-//        };
 //
        newListButton.setOnClickListener(newListClickListener);
 //        viewListsButton.setOnClickListener(viewListsClickListener);

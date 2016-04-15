@@ -30,24 +30,25 @@ public class ListViewer extends AppCompatActivity {
 
         final EditText subListInput = (EditText) findViewById(R.id.subListInput);
 
+        //Pulls the title from Blank list
         Intent intent = getIntent();
         String title1 = intent.getStringExtra("title");
         TextView messageTextView= (TextView) findViewById(R.id.madeIt);
         messageTextView.setText(title1);
 
+        //initiates the array for user input
         final ArrayList theSubArray = new ArrayList<>();
         final ArrayAdapter subListAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, theSubArray);
         subListView.setAdapter(subListAdapter);
-
         subArrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, theSubArray);
 
         //Creating toast "Mamba Out"
         Context context = getApplicationContext();
         CharSequence text = "Mamba. Out.";
         int duration = Toast.LENGTH_SHORT;
-
         final Toast toast = Toast.makeText(context, text, duration);
 
+        //Adds stuff to the array from user input on click of And One button.
         View.OnClickListener sublistClickListener = new View.OnClickListener() {
             public void onClick(View v) {
                 theSubArray.add(subListInput.getText().toString());
@@ -56,6 +57,7 @@ public class ListViewer extends AppCompatActivity {
             }
         };
 
+        //deletes items from the array and displays the Mamba Out toast.
         subListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent,View view, int position, long id) {
@@ -63,7 +65,6 @@ public class ListViewer extends AppCompatActivity {
                 subListAdapter.notifyDataSetChanged();
                 toast.show();
                 return false;
-
             }
         });
 
@@ -74,9 +75,9 @@ public class ListViewer extends AppCompatActivity {
 
 
 
+    //<<<<<<<----NOTHING TO SEE HERE---->>>>>>> A BUNCH OF RANDOM NOTES AND TESTS
 
-
-
+//        A bunch of random notes.
 //        ArrayList<String> arrayOfArrays = new ArrayList<>();
 //        ArrayAdapter<String> arrayListAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, arrayOfArrays);
 //        finalListView.setAdapter(arrayListAdapter);
