@@ -29,10 +29,8 @@ public class ListViewer extends AppCompatActivity {
         final ArrayAdapter subListAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, theSubArray);
         subListView.setAdapter(subListAdapter);
 
-        //Takes a list input puts it in the array
         View.OnClickListener sublistClickListener = new View.OnClickListener() {
             public void onClick(View v) {
-                //System.out.println("Guacamolly");
                 theSubArray.add(subListInput.getText().toString());
                 subListInput.setText("");
                 subListAdapter.notifyDataSetChanged();

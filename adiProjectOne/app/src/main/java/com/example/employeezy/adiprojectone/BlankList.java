@@ -32,15 +32,15 @@ public class BlankList extends AppCompatActivity {
 
         final ArrayAdapter blankListAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, itemsInTheArray);
         iListItems.setAdapter(blankListAdapter);
+        itemsInTheArray.add("here's a sstring");
 
         //Takes a list input puts it in the array
         View.OnClickListener blankListInputClickListener = new View.OnClickListener() {
             public void onClick(View v) {
-                //System.out.println("Guacamolly");
                 itemsInTheArray.add(iListInput.getText().toString());
                 iListInput.setText("");
                 blankListAdapter.notifyDataSetChanged();
-                ArrayList sublist = new ArrayList<>();
+                //ArrayList sublist = new ArrayList<>();
             }
         };
 
@@ -52,6 +52,14 @@ public class BlankList extends AppCompatActivity {
                 intent.putExtra("index", position);
                 intent.putExtra("name", name);
                 startActivity(intent);
+            }
+        });
+
+        iListItems.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                itemsInTheArray.remove(position);
+                return false;
             }
         });
 
